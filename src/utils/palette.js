@@ -10,7 +10,14 @@ const palette = {
 
   orange: `#ED6D23`,
 
+  purple: `purple`,
+  red: `red`,
+  white: `white`,
+  offWhite: `smoke`,
+  yellow: `yellow`,
   warning: `#ec1818`,
+  okay: `green`,
+  proceed: `blue`,
   devText: `black`,
   blackBoard: `#001A0E`,
   ui: {

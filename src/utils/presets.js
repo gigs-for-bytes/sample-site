@@ -13,11 +13,12 @@ module.exports = {
     xxl: `@media (min-width: 2001px)`,
   },
   animation: {
-    curveDefault: `cubic-bezier(0.4, 0, 02, 1)`,
+    curveSss: `cubic-bezier(1,.04,0,.92)`,
+    curveDefault: `cubic-bezier(0.9, 0, 02, 1)`,
     curveExpo: `cubic-bezier(.17, .67, .83, .67)`,
     speedDefault: `200ms`,
     speedFast: `100ms`,
-    speedSlow: `350ms`,
+    speedSlow: `1s`,
   },
   elevation: {
     raised: 10,

@@ -5,6 +5,10 @@ import palette from "../../utils/palette"
 import LogoOne from "../media/logo-one"
 import LogoTwo from "../media/logo-two"
 import {mq} from "../../utils/presets"
+import classes from "../../hoc/layout.module.css"
+import { css } from "emotion"
+import useToggleHook from "../../hooks/useToggleHook"
+import AiPixelPerfect from "../media/exp-logos/ai-pixel-perfect"
 
 const NavRow = styled.div`
   display: flex;
@@ -34,6 +38,9 @@ const LogoWrap = styled.div`
   }
 `
 
+
+
+
 const LogoBox = styled.div`
    display: block;
    width: 310px;  
@@ -58,10 +65,16 @@ const NavLinksRow = styled.div`
   }
 `
 
-const NavLinkBox = styled.div`
+const NavLinkBox = styled.button`
    display: block;
-   width: 80px;
+   background-color: ${palette.navDark};
+   width: 100px;
    text-align: center;
+   text-decoration: none;
+   border-style: none;
+   border: none;
+   {activateButton}
+   
    ${mq.tablet} {
     height: 50px;
   }
@@ -69,42 +82,59 @@ const NavLinkBox = styled.div`
 
 const NavLinkText = styled.h5`
   color: ${palette.liteGrey};
-  font-size: 20px;
+  // background-color: ${palette.navDark};
+  font-size: 25px;
   &:hover, &:focus { transition: color 1s; color: ${palette.orange}};
-  ${mq.tablet} {
+  
+${mq.tablet} {
   margin-top: 0;
   margin-bottom: 0;
   }
 `
 
+const activateButton = () => {
+  css({background_color: 'red'})
+
+}
 
 
+const TopNav = (props) => {
 
 
-const TopNav = () => (
-  <NavRow>
-    <LogoWrap>
-    <LogoBox>
-      <LogoTwo/>
-    </LogoBox>
-    </LogoWrap>
-  <NavLinksRow>
-    <NavLinkBox>
-      <NavLinkText>
-        Services
-      </NavLinkText>
-    </NavLinkBox>
-    <NavLinkBox>
-    <NavLinkText>
-      About
-    </NavLinkText>
-    </NavLinkBox>
-    <NavLinkBox>
-    <NavLinkText>
-      Contact
-    </NavLinkText>
-      </NavLinkBox>
-  </NavLinksRow>
-  </NavRow>
-)
+    return (
+    <NavRow>
+      <LogoWrap>
+        <Link to={'/'} className={`{classes.link}`}>
+          <LogoBox>
+            {/*<LogoTwo/>*/}
+            <AiPixelPerfect/>
+          </LogoBox>
+        </Link>
+      </LogoWrap>
+      <NavLinksRow>
+        <NavLinkBox>
+          <Link to={'/page-2'} className={classes.link} >
+            <NavLinkText>
+              Page 2
+            </NavLinkText>
+          </Link>
+        </NavLinkBox>
+        <NavLinkBox>
+          <Link to={'/page-3'} className={classes.link}>
+            <NavLinkText>
+              Page 3
+            </NavLinkText>
+          </Link>
+        </NavLinkBox>
+        <NavLinkBox>
+          <Link to={'/page-4'} className={classes.link}>
+            <NavLinkText>
+              Page 4
+            </NavLinkText>
+          </Link>
+        </NavLinkBox>
+      </NavLinksRow>
+    </NavRow>
+  )
+}
 export default TopNav;
